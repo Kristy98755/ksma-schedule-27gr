@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
     + "?latitude=42.875&longitude=74.5"
     + "&hourly=temperature_2m,precipitation,snowfall,cloudcover"
+    + "&past_days=7&forecast_days=14"
     + "&timezone=Asia/Bishkek";
 
   const CACHE_DAYS = 7;
@@ -91,11 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderWeek(dateStr, container, weekId) {
     return fetchSchedule(dateStr).then(({ data, source }) => {
       const label = document.getElementById(weekId === "CurrWeek" ? "week" : "week-next");
-      container.innerHTML = "";
+      // Чистим только прошлый рендер, заголовок недели не трогаем
+      container.querySelectorAll(".schedule__table, .s27-src, .s27-err")
+        .forEach(node => node.remove());
 
       if (!data) {
         if (label) label.textContent = "";
-        container.innerHTML = "<p class='s27-err'>Не удалось загрузить расписание</p>";
+        container.insertAdjacentHTML("beforeend", "<p class='s27-err'>Не удалось загрузить расписание</p>");
         return;
       }
 
