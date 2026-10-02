@@ -5,7 +5,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const GROUP_ID = 79;
-  const GROUP_NAME = "27 группа";
   const PROXY = "https://ksma-schedule.itismynickname9.workers.dev";
   const PROXY_FALLBACK = "https://ksma-schedule.vercel.app/api/proxy";
   const WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
@@ -223,8 +222,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const isCur = which === "CurrWeek";
     currWeekEl.style.display = isCur ? "block" : "none";
     nextWeekEl.style.display = isCur ? "none" : "block";
-    cur.style.backgroundColor = isCur ? "#27a8e7dd" : "#bbdd";
-    next.style.backgroundColor = isCur ? "#bbdd" : "#27a8e7dd";
+    cur.classList.toggle("active", isCur);
+    next.classList.toggle("active", !isCur);
   }
 
   cur.onclick = () => showWeek("CurrWeek");
@@ -232,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ---------- старт ----------
   (async function init() {
-    document.title = `Расписание · ${GROUP_NAME}`;
+    document.title = "Расписание занятий 27 группы";
     const monday = getMonday(new Date());
     const nextMonday = new Date(monday);
     nextMonday.setDate(nextMonday.getDate() + 7);

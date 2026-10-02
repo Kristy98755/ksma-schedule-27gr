@@ -25,7 +25,7 @@ body {
     font-size: 16px;
 }
 
-/* Заголовок */
+/* Заголовок поверх вкладок недели */
 .page-item__title {
     color: #fff;
     background: linear-gradient(180deg, rgba(14, 20, 32, .92), rgba(14, 20, 32, .70));
@@ -35,31 +35,49 @@ body {
     padding: 16px 10px;
     font-size: 32px;
     text-shadow: 0 2px 12px rgba(0, 0, 0, .6);
+    z-index: 30;
 }
 
-/* Кнопки недель */
+/* Вкладки недели — всегда под заголовком */
+.week-tb {
+    z-index: 5;
+}
+
+/* Неактивная вкладка */
 .week-btn {
     color: var(--s27-muted);
-    background: rgba(14, 20, 32, .82);
+    background: rgba(14, 20, 32, .78);
     border: 1px solid var(--s27-line);
     border-radius: 12px;
     box-shadow: none;
     margin: 0 4px;
     font-size: 19px;
+    opacity: .72;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 }
 
+/* Активная вкладка */
+.week-btn.active {
+    color: #fff !important;
+    background: linear-gradient(180deg, #3fc0f5, #1b8fc9) !important;
+    border-color: rgba(255, 255, 255, .45);
+    border-radius: 12px;
+    opacity: 1;
+    font-weight: 700;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(39, 168, 231, .45), inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
 .week-btn:hover {
     color: #fff;
+    opacity: 1;
     background: rgba(39, 168, 231, .22);
 }
 
-.week-btn.active, #cur {
-    background: rgba(39, 168, 231, .88) !important;
-    color: #fff !important;
-    border-radius: 12px;
-    box-shadow: 0 6px 22px rgba(39, 168, 231, .35);
+.week-btn.active:hover {
+    background: linear-gradient(180deg, #55cdfaff, #2196d4ff) !important;
+    box-shadow: 0 10px 26px rgba(39, 168, 231, .55), inset 0 1px 0 rgba(255, 255, 255, .4);
 }
 
 .week-btn.active:before, .week-btn:hover:before {
