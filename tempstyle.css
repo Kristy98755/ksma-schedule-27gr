@@ -1,0 +1,227 @@
+/* Общие стили */
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: turquoise;
+    -webkit-text-stroke: 0.5px #007eff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #000000;
+	}
+
+
+body {
+    font-family: 'PTSr', Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #32465a;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    background-image: url('https://i.postimg.cc/2SMc6f1Q/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+/* Заголовок страницы */
+.page-item__title {
+    display: block;
+    color: #000;
+    font-size: 30px;
+    letter-spacing: -0.75px;
+    background-color: #bbdd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    text-align: center;
+}
+
+/* Кнопки недели */
+.week-btn {
+    display: table-cell;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+    padding: 12px 20px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+}
+
+.week-btn.active,
+.week-btn:hover {
+    border-bottom: 0;
+    color: #324;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #bbdd;
+}
+
+.week-btn.active:before,
+.week-btn:hover:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: #000;
+    animation: jump-horizontal .3s forwards;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Секция расписания */
+.schedule__table {
+    margin: 40px 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.schedule__day {
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+.schedule__date {
+    padding-top: 15px;
+    width: 90px;
+    text-align: right;
+    text-shadow: 0 0 4px #fff, 0 0 4px #fff, 0 0 4px #fff;
+    color: #000;
+    font-weight: 600;
+	font-size: 16px;
+}
+
+.schedule__lessons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+    background-color: #bbdd;
+}
+
+/* Уроки */
+.lesson {
+    display: table;
+    width: 100%;
+    padding: 12px 20px !important;
+}
+
+.lesson + .lesson {
+    border-top: 1px solid #e5e5e5;
+}
+
+.lesson__time {
+    display: table-cell;
+    font-style: italic;
+    font-size: 14px;
+    padding-top: 2px;
+    width: 80px;
+    text-align: right;
+    color: #32465a;
+}
+
+.lesson__params {
+    display: table-cell;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.lesson__params > span {
+    display: block;
+}
+
+.lesson__params > span + span {
+    margin-top: 5px;
+}
+
+.lesson__name {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000;
+}
+
+.lesson__type {
+    color: #333;
+}
+
+.lesson__place {
+    color: #32465a;
+    transition: color .3s;
+}
+
+/* Выравнивание */
+.center {
+    text-align: center;
+}
+
+#week {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 0 4px #fff, 0 0 4px #fff, 0 0 4px #fff;
+    text-align: center;
+}#week-next {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 0 4px #fff, 0 0 4px #fff, 0 0 4px #fff;
+    text-align: center;
+}
+
+/* Анимации */
+@keyframes jump-horizontal {
+    0% { transform: scaleX(.7); }
+    50% { transform: scaleX(1); }
+    80% { transform: scaleX(.9); }
+    100% { transform: scaleX(1); }
+}
+
+/* Адаптив */
+/* @media (min-width: 768px) { */
+    /* .schedule__date { */
+        /* float: left; */
+    /* } */
+
+    /* .schedule__lessons { */
+        /* margin-left: 110px; */
+    /* } */
+/* } */
+
+.schedule {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+
+/* .week-tb { */
+    /* display: table; */
+    /* margin: 0 auto; */
+    /* position: relative */
+/* } */
+.week-tb {
+    display: none; /* скрываем */
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+}
+
+
+#cur {
+	background-color:#27a8e7dd;
+}
+
+/* .addr { */
+	/* color:green; */
+/* } */

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Расписание занятий — 27 группа</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#0e1420">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="tempstyle.css" type="text/css">
+    <link rel="stylesheet" href="style27.css" type="text/css">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- JS -->
+    <script src="script.js" defer></script>
+
+    <style>
+        /* Обои группы */
+        body {
+            background-image: url('img/photo_2026-10-02_21-18-03.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        @media (orientation: landscape) {
+            body {
+                background-image: url('img/photo_2026-10-02_21-18-03.jpg');
+            }
+        }
+    </style>
+</head>
+<body>
+<section class="content container">
+    <span class="page-item__title">Расписание занятий · 27 группа</span>
+    <section class="schedule full">
+        <div class="schedule__data" style="display: block;">
+            <div class="row center week-tb">
+                <div class="week-btn active" id="cur">Текущая неделя</div>
+                <div class="week-btn active" id="next">Следующая неделя</div>
+            </div>
+
+            <!-- Текущая неделя -->
+            <div id="CurrWeek">
+                <span id="week"></span>
+                <ul class="schedule__table"></ul>
+            </div>
+
+            <!-- Следующая неделя -->
+            <div id="NextWeek" style="display: none;">
+                <span id="week-next"></span>
+                <ul class="schedule__table"></ul>
+            </div>
+        </div>
+    </section>
+</section>
+<div style="height: 50px;"></div>
+</body>
+</html>
