@@ -89,30 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
     return { data: null, source: "error" };
   }
 
-  function renderWeek(dateStr, container, weekId) {
+  function renderWeek(dateStr, container) {
     return fetchSchedule(dateStr).then(({ data, source }) => {
-      const label = document.getElementById(weekId === "CurrWeek" ? "week" : "week-next");
-      // Чистим только прошлый рендер, заголовок недели не трогаем
+      // Чистим только прошлый рендер
       container.querySelectorAll(".schedule__table, .s27-src, .s27-err")
         .forEach(node => node.remove());
 
       if (!data) {
-        if (label) label.textContent = "";
         container.insertAdjacentHTML("beforeend", "<p class='s27-err'>Не удалось загрузить расписание</p>");
         return;
-      }
-
-      const dates = Object.keys(data)
-        .map(k => data[k] && data[k].d)
-        .filter(Boolean)
-        .sort();
-      if (label && dates.length) {
-        const a = new Date(dates[0]);
-        const b = new Date(dates[dates.length - 1]);
-        const fmt = new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long" });
-        label.textContent = dates.length
-          ? `${fmt.format(a)} — ${fmt.format(b)}`
-          : "";
       }
 
       const table = document.createElement("ul");
@@ -255,8 +240,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".week-tb").style.display = "table";
     showWeek("CurrWeek");
 
-    await renderWeek(formatDate(monday), currWeekEl, "CurrWeek");
-    await renderWeek(formatDate(nextMonday), nextWeekEl, "NextWeek");
+    await renderWeek(formatDate(monday), currWeekEl);
+    await renderWeek(formatDate(nextMonday), nextWeekEl);
   })();
 
 });

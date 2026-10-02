@@ -11,22 +11,20 @@
     <link rel="stylesheet" href="style27.css" type="text/css">
     <link rel="icon" href="favicon.ico">
 
+    <!-- Шрифт -->
+    <link rel="preload" href="fonts/MonotypeCorsiva.ttf" as="font" type="font/ttf" crossorigin>
+
     <!-- JS -->
     <script src="script.js" defer></script>
 
     <style>
         /* Обои группы */
         body {
-            background-image: url('img/photo_2026-10-02_21-18-03.jpg');
+            background-image: url('img/bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-        }
-        @media (orientation: landscape) {
-            body {
-                background-image: url('img/photo_2026-10-02_21-18-03.jpg');
-            }
         }
     </style>
 </head>
@@ -42,13 +40,11 @@
 
             <!-- Текущая неделя -->
             <div id="CurrWeek">
-                <span id="week"></span>
                 <ul class="schedule__table"></ul>
             </div>
 
             <!-- Следующая неделя -->
             <div id="NextWeek" style="display: none;">
-                <span id="week-next"></span>
                 <ul class="schedule__table"></ul>
             </div>
         </div>
