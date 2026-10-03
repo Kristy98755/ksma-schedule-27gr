@@ -1,10 +1,10 @@
-// Расписание 27 группы (Лечебное дело №1, 4 курс).
-// Внутренний ID группы на kgma.kg — 79. Выбор группы не нужен, он зашит.
+// Расписание 28 группы (Лечебное дело №1, 4 курс).
+// Внутренний ID группы на kgma.kg — 80. Выбор группы не нужен, он зашит.
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const GROUP_ID = 79;
+  const GROUP_ID = 80;
   const PROXY = "https://ksma-schedule.itismynickname9.workers.dev";
   const PROXY_FALLBACK = "https://ksma-schedule.vercel.app/api/proxy";
   const WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
